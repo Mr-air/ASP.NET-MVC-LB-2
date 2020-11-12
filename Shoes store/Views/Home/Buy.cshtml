@@ -1,0 +1,47 @@
+﻿@{
+    ViewBag.Title = "Buy";
+    Layout = "~/Views/Shared/_Buy.cshtml";
+}
+    
+
+
+<div>
+    <h3>Форма оформления покупки</h3>
+    @using (Html.BeginForm("Buy", "Home", FormMethod.Post))
+    {
+        @Html.Hidden("ShoesId", ViewBag.ShoesId as string)
+<table>
+    <tr>
+        <td>@Html.Label("Person", "Введите имя :")</td>
+        <td>@Html.TextBox("Person")</td>
+    </tr>
+    <tr>
+        <td>@Html.Label("Address", "Введите адрес :")</td>
+        <td>@Html.TextBox("Address")</td>
+    </tr>
+    <tr>
+        <td>@Html.Label("Comments", "Комментарий :")</td>
+        <td>@Html.TextArea("Comments", "Оставьте свой комметарий", 5, 50, null)</td>
+    </tr>
+    <tr>
+        <td>@Html.Label("Estimation", "Оцените модель :")</td>
+        <td>
+            @Html.RadioButton("Estimation", 1)
+            <span>Одна звезда</span> <br />
+            @Html.RadioButton("Estimation", 2)
+            <span>Две звезды</span> <br />
+            @Html.RadioButton("Estimation", 3)
+            <span>Три звезды</span> <br />
+            @Html.RadioButton("Estimation", 4)
+            <span>Четыре звезды</span> <br />
+            @Html.RadioButton("Estimation", 5)
+            <span>Пять звезд</span> <br />
+        </td>
+    </tr>
+    <tr>
+        <td><input type="submit" value="Отправить" /> </td>
+    </tr>
+</table>
+    }
+</div>
+
